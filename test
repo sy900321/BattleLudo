@@ -12,15 +12,22 @@ class Game{
         Game();
         void clear();
         void backHome();
+	    bool cardempty(int);//Null true 
+
         void home();//主頁
         void rules();//
         void quit();//離開
+
         void start();
         void setlevel();//玩家選擇了簡單(turn)或困難(false)
         void setcardset();//玩家選擇了12或20張卡
-        void showcard(int, int);//顯示卡組
-        string cardinfo(int);//顯示卡[2 梅花]
-        string cardorder(int);//顯示卡<  03  >
+
+        void showcardB(int, int);//顯示卡組
+        void showcardA(int);//顯示卡組
+
+        void cardinfo(int);//顯示卡[2 梅花]
+        void cardorder(int);//顯示卡<  03  >
+
         void paired(int);//
         bool match(int,int);//是否配對成功
         void end();//全部配對成功
@@ -38,7 +45,6 @@ void Game::backHome(){
     home();
 }
 void Game::rules(){
-
     cout<<"\033[2J\033[1;1H"<<"Rules\n遊戲開始時，玩家可選擇兩種難度:\n簡單模式:\n    卡牌同數字即可，顏色可不相同\n困難模式:\n    則為卡牌的數字與顏色皆須相同\n(黑桃與梅花視為同色，愛心與方塊視為同色)\n";
     backHome();
 }
@@ -48,7 +54,6 @@ void Game::quit(){
 }
 //主頁
 void Game::home(){
-
     cout<<"Welecome To Group 6\n    Card Matching\nPress 1 Get Start\nPress 2 Read Rules\nPress 0 Quit\n";
     int a;cin>>a;
     while(a>2){
@@ -69,6 +74,7 @@ void Game::start(){
     setlevel();
     //cout<<"Level: "<<level<<"\nCard: "<<numOfCard;
 }
+
 //玩家選擇了簡單(turn)或困難(false)
 void Game::setlevel(){
     cout<<"\033[2J\033[1;1H"<<"Select the Level: \n1    Easy(Same Number)\n2    Hard(Same Number and Colour)\n0    Back Home\n";
@@ -85,6 +91,7 @@ void Game::setlevel(){
     else if(a==0){
         cout<<"\033[2J\033[1;1H";home();}
 }
+
 //玩家選擇了12或20張卡
 void Game::setcardset(){
     cout<<"\033[2J\033[1;1H"<<"Select the Level: \n1    12 Card\n2    20 Crad\n0    Back Page\n";
